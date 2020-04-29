@@ -1,12 +1,13 @@
 import React from 'react';
-import dogs from "../dogsdata";
+import dogs from '../constants/dogsdata';
 import {Button} from "reactstrap";
-import FavoriteActions from "../components/FavoriteActions";
 import Dog from "../components/Dog";
 import axios from "axios";
+import { Switch, Route } from 'react-router';
+import DogDetail from './DogDetail';
 
 
-const apiHost = "MOCK API URL";
+const apiHost = "https://5ea568682d86f00016b45ba7.mockapi.io/";
 
 class Homepage extends React.Component {
     constructor(props){
@@ -65,7 +66,7 @@ class Homepage extends React.Component {
         }
     }
 
-    getStatus= (dogId) =>{
+    getStatus = (dogId) => {
         const foundDog = this.state.favorites.find((favorite) => favorite.dogId === dogId);
         return foundDog;
     }
@@ -84,6 +85,17 @@ class Homepage extends React.Component {
                             return <Dog toggle={this.toggle} id={dog.id} getStatus={this.getStatus} {...dog}/>
                         })
                     }
+                    <Switch>
+                    {
+                        dogs.map(dog => {
+                            return <Route 
+                            path={`/detail/:dogId`}
+                            component={DogDetail}>
+
+                            </Route>
+                        })
+                    }
+                    </Switch>
                 </ul>
             </div>
         );
