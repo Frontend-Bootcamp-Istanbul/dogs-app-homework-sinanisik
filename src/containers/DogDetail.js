@@ -9,7 +9,7 @@ import {
 
 const DogDetail = (props) => {
     const selectedDogId = props.match.params.dogId;
-    const selectedDog = dogs.filter(dog => dog.id === selectedDogId)[0];
+    const selectedDog = dogs.find(dog => dog.id === selectedDogId);
     return (
         <div>
             <Card style={{width:"400px", height:"200px"}}>

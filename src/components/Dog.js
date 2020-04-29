@@ -3,12 +3,17 @@ import FavoriteActions from "./FavoriteActions";
 import { Link, Switch } from "react-router-dom";
 
 
-const Dog = ({ id, name, toggle, getStatus, loadingButton }) => {
+const Dog = ({ id, name, toggle, getStatus, loadingId }) => {
     return <li>
         <Link to={`/detail/${id}`}>
             {name}
         </Link>
-        <FavoriteActions loadingButton={loadingButton} toggle={toggle} id={id} getStatus={getStatus} />
+        <FavoriteActions
+            toggle={toggle}
+            id={id}
+            getStatus={getStatus}
+            loadingId={loadingId}
+        />
     </li>
 };
 
