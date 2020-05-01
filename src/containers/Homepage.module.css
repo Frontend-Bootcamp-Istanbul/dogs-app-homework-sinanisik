@@ -1,0 +1,6 @@
+.Container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: rgba(137, 221, 224, 0.212);
+}

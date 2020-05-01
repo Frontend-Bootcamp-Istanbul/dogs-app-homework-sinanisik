@@ -5,6 +5,9 @@ import Dog from "../components/Dog";
 import axios from "axios";
 import { Switch, Route } from 'react-router';
 import DogDetail from './DogDetail';
+import classes from './Homepage.module.css';
+import { Container, Row, Col } from 'reactstrap';
+
 
 
 const apiHost = "https://5ea568682d86f00016b45ba7.mockapi.io/";
@@ -59,15 +62,15 @@ class Homepage extends React.Component {
         } else {
             // window.localStorage.setItem("favorites", JSON.stringify(this.state.favorites));
             axios.post(`${apiHost}/favorites`, { dogId })
-            .then((result) => {
-                const eklenenFavori = result.data; // {id: 1, dogId: benim yolladigim dog id, createdat: date}
-                this.setState({
-                    favorites: [...this.state.favorites, eklenenFavori],
-                    loadingId: null
+                .then((result) => {
+                    const eklenenFavori = result.data; // {id: 1, dogId: benim yolladigim dog id, createdat: date}
+                    this.setState({
+                        favorites: [...this.state.favorites, eklenenFavori],
+                        loadingId: null
+                    })
+                }).catch((err) => {
+                    console.log(err);
                 })
-            }).catch((err) => {
-                console.log(err);
-            })
         }
     }
 
@@ -83,31 +86,19 @@ class Homepage extends React.Component {
             </div>
         }
         return (
-            <div>
-                <ul>
-                    {
-                        dogs.map((dog) => {
-                            return <Dog
-                                toggle={this.toggle}
-                                id={dog.id}
-                                getStatus={this.getStatus}
-                                {...dog}
-                                loadingId={this.state.loadingId}
-                            />
-                        })
-                    }
-                    <Switch>
-                        {
-                            dogs.map(dog => {
-                                return <Route
-                                    path={`/detail/:dogId`}
-                                    component={DogDetail}>
-
-                                </Route>
-                            })
-                        }
-                    </Switch>
-                </ul>
+            <div className={classes.Container}>
+                {
+                    dogs.map((dog) => {
+                        return <Dog
+                            key={dog.id}
+                            toggle={this.toggle}
+                            id={dog.id}
+                            getStatus={this.getStatus}
+                            {...dog}
+                            loadingId={this.state.loadingId}
+                        />
+                    })
+                }
             </div>
         );
     }

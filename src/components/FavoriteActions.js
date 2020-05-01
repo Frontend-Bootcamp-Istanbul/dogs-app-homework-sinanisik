@@ -7,7 +7,7 @@ const FavoriteActions = (props) => {
     props.loadingId === props.id ? isDisabled = true : isDisabled = false;
 
     return (
-        <div>
+        <div style={{marginTop: "5px"}}>
             {
                 props.getStatus(props.id) ?
                     <Button disabled={isDisabled} color="danger" onClick={() => {props.toggle(props.id)}}>Favorilerden Cikar</Button>

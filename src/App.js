@@ -7,8 +7,6 @@ import dogs from './constants/dogsdata';
 import DogDetail from './containers/DogDetail';
 
 
-
-
 class App extends React.Component {
     render() {
         return (
@@ -25,18 +23,17 @@ class App extends React.Component {
                         })
                     }
                 </Switch>
-                <Switch>
+                {/* <Switch>
                     {
                         dogs.map(dog => {
                             return <Route
                                 key={dog.id}
                                 path={`/detail/:dogId`}
                                 component={DogDetail}>
-
                             </Route>
                         })
                     }
-                </Switch>
+                </Switch> */}
             </div>
         );
     }
