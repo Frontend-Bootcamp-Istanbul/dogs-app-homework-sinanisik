@@ -2,7 +2,7 @@ import React from 'react';
 import dogs from '../constants/dogsdata';
 import {
     Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button
+    CardTitle, CardSubtitle
 } from 'reactstrap';
 import classes from './DogDetail.module.css';
 

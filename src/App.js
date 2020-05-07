@@ -3,9 +3,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Header from './components/Header'
 import { Switch, Route } from "react-router-dom";
 import routes from "./constants/routes";
-import dogs from './constants/dogsdata';
-import DogDetail from './containers/DogDetail';
-
 
 class App extends React.Component {
     render() {
