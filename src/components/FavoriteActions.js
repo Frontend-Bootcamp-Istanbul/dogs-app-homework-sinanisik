@@ -1,20 +1,42 @@
-import React from 'react';
-import {Button} from "reactstrap";
+import React, { Component } from 'react';
+import { Button } from "reactstrap";
+import { connect } from "react-redux";
+import { addFavorite, deleteFavorite, showStatus } from '../redux/actions';
+
 
 const FavoriteActions = (props) => {
 
-    let isDisabled;
-    props.loadingId === props.id ? isDisabled = true : isDisabled = false;
+        let isDisabled = props.loadingId === props.id ? true : false;
 
-    return (
-        <div style={{marginTop: "5px"}}>
-            {
-                props.getStatus(props.id) ?
-                    <Button disabled={isDisabled} color="danger" onClick={() => {props.toggle(props.id)}}>Favorilerden Cikar</Button>
-                    : <Button disabled={isDisabled} color="primary" onClick={() => {props.toggle(props.id)}}>Favoriye Ekle</Button>
-            }
-        </div>
-    );
-};
+        const currDog = props.favorites.find(fav => fav.dogId === props.id);
+        return (
+            <div style={{ marginTop: "5px" }}>
 
-export default FavoriteActions;
+                {
+                    currDog ?
+                        <Button disabled={isDisabled} color="danger" onClick={() => {
+                            props.deleteFavorite(currDog.id, props.id)
+                        }}>Favorilerden Cikar</Button>
+                        : <Button disabled={isDisabled} color="primary" onClick={() => {
+                            props.addFavorite(props.id)
+                        }}>Favoriye Ekle</Button>
+                }
+            </div>
+        );
+}
+
+
+const mapStateToProps = state => {
+    return {
+        favorites: state.favoriteReducer,
+        loadingId: state.statusReducer.loadingId
+    }
+}
+
+const mapDispatchToProps = {
+    addFavorite: addFavorite,
+    deleteFavorite: deleteFavorite,
+    showStatus: showStatus
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(FavoriteActions);
