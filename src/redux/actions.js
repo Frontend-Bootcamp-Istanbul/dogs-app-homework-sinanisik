@@ -23,7 +23,6 @@ export const addFavorite = (dogId) => {
                 })
             })
     }
-
 }
 
 export const deleteFavorite = (id, dogId) => {
@@ -47,9 +46,7 @@ export const deleteFavorite = (id, dogId) => {
 
 
 export const fetchData = () => {
-
     return dispatch => {
-
         dispatch({
             type: LOADING
         })
@@ -73,30 +70,3 @@ export const showStatus = (dogId) => {
         })
     }
 }
-
-// if (actionType === "add") {
-//     axios.post(`${apiHost}/favorites`, { dogId })
-//         .then((result) => {
-//             const eklenenFavori = result.data;
-//             dispatch({
-//                 type: ADD_FAVORITE,
-//                 payload: eklenenFavori
-//             })
-//         })
-
-// } else if (actionType === "delete") {
-//     axios.delete(`${apiHost}/favorites/${dogId}`).then((result) => {
-//         dispatch({
-//             type: DELETE_FAVORITE,
-//             payload: dogId
-//         })
-//     })
-// }
-
-// if(foundDog) {
-//     console.log("bu köpek favorilerde VAR");
-// } else {
-//     console.log("bu köpek favorilerde YOK");
-
-// }
-

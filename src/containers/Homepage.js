@@ -3,8 +3,7 @@ import dogs from '../constants/dogsdata';
 import Dog from "../components/Dog";
 import classes from './Homepage.module.css';
 import { connect } from 'react-redux';
-import {fetchData} from '../redux/actions';
-
+import { fetchData } from '../redux/actions';
 
 
 class Homepage extends React.Component {
