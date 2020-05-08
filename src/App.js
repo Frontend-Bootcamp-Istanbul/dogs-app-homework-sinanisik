@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import Header from './components/Header'
 import { Switch, Route } from "react-router-dom";
@@ -20,17 +21,6 @@ class App extends React.Component {
                         })
                     }
                 </Switch>
-                {/* <Switch>
-                    {
-                        dogs.map(dog => {
-                            return <Route
-                                key={dog.id}
-                                path={`/detail/:dogId`}
-                                component={DogDetail}>
-                            </Route>
-                        })
-                    }
-                </Switch> */}
             </div>
         );
     }

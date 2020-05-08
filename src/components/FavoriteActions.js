@@ -6,18 +6,17 @@ import { addFavorite, deleteFavorite, showStatus } from '../redux/actions';
 
 const FavoriteActions = (props) => {
 
-        const currDog = props.favorites.find(fav => fav.dogId === props.id);
+        const currentDog = props.favorites.find(fav => fav.dogId === props.id);
         return (
-            <div style={{ marginTop: "5px" }}>
-
+            <div>
                 {
-                    currDog ?
+                    currentDog ?
                         <Button disabled={props.loadingId === props.id} color="danger" onClick={() => {
-                            props.deleteFavorite(currDog.id, props.id)
-                        }}>Favorilerden Cikar</Button>
+                            props.deleteFavorite(currentDog.id, props.id)
+                        }}>Remove Favorites</Button>
                         : <Button disabled={props.loadingId === props.id} color="primary" onClick={() => {
                             props.addFavorite(props.id)
-                        }}>Favoriye Ekle</Button>
+                        }}>Add Favorites</Button>
                 }
             </div>
         );

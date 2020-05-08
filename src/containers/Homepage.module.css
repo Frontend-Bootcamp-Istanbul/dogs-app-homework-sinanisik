@@ -4,3 +4,16 @@
     flex-wrap: wrap;
     background-color: rgba(137, 221, 224, 0.212);
 }
+
+
+.Loading {
+   display: flex;
+   height: 100vh;
+   justify-content: center;
+   align-items: center;
+}
+
+h1 {
+    font-size: 350%;
+    font-style: bold;
+}

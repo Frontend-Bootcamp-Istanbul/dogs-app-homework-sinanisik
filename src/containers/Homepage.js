@@ -17,8 +17,8 @@ class Homepage extends React.Component {
 
     render() {
         if (this.props.loadingFavorites) {
-            return <div>
-                <h1>Sayfa Yukleniyor.....</h1>
+            return <div className={classes.Loading}>
+                <h1>Page Loading...</h1>
             </div>
         }
         return (

@@ -6,25 +6,26 @@ import PropTypes from 'prop-types';
 
 
 const Dog = ({ id, name, image }) => {
-    return <div className={classes.DogItem}>
-        <div className={classes.DogImg}>
-            <img src={image} alt={name} className={classes.Image} />
-            <div className={classes.Middle}>
-                <div className={classes.Text}>Click my name to learn more!</div>
+    return (
+        <div className={classes.DogItem}>
+            <div className={classes.DogImg}>
+                <img src={image} alt={name} className={classes.Image} />
+            </div>
+
+            <div className={classes.Title}>
+                <div className={classes.Link}>
+                    <Link to={`/detail/${id}`}>
+                        {name}
+                    </Link>
+                </div>
+                <div>
+                    <FavoriteActions
+                        id={id}
+                    />
+                </div>
             </div>
         </div>
-
-        <div className={classes.Title}>
-            <Link to={`/detail/${id}`}>
-                {name}
-            </Link>
-
-            <FavoriteActions
-                id={id}
-            />
-        </div>
-
-    </div>
+    );
 };
 
 Dog.propTypes = {
