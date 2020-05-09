@@ -1,8 +1,7 @@
 import React from "react";
-import Homepage from "./containers/Homepage";
-import Goldens from "./containers/Goldens";
-import Cavaliers from "./containers/Cavaliers";
-import FilteredDogs from "./containers/FilteredDogs";
+import Homepage from "../containers/Homepage";
+import FilteredDogs from "../containers/FilteredDogs";
+import DogDetail from "../containers/DogDetail";
 
 const routes = [
     {
@@ -16,6 +15,12 @@ const routes = [
         exact: false,
         component: FilteredDogs,
         title: "Filtrelenmis Dogs"
+    },
+    {
+        path: "/detail/:id",
+        exact: false,
+        component: DogDetail,
+        title: "Dog Detail"
     },
     {
         path: "/hakkinda",

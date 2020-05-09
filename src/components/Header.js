@@ -1,21 +1,14 @@
 import React, {useState} from 'react';
 import {Link} from "react-router-dom";
-
 import {
     Collapse,
     Navbar,
     NavbarToggler,
-    NavbarBrand,
     Nav,
     NavItem,
-    NavLink,
-    UncontrolledDropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem,
-    NavbarText
+    NavLink
 } from 'reactstrap';
-import navs from "./navs";
+import navs from '../constants/navs';
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -27,7 +20,7 @@ const Header = () => {
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="mr-auto" navbar>
-{/*                        {
+                       {
                             navs.map((route) => {
                                 return <NavItem key={route.path}>
                                     <NavLink>
@@ -37,33 +30,7 @@ const Header = () => {
                                     </NavLink>
                                 </NavItem>
                             })
-                        }*/}
-                        <NavItem>
-                            <NavLink>
-                                <Link to="/">
-                                    Anasayfa
-                                </Link>
-                            </NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink>
-                                <Link to="/hakkinda">
-                                    Hakkimizda
-                                </Link>
-                            </NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink>
-                                <Link to="/tur/golden-retriever">
-                                    Goldens
-                                </Link>
-                            </NavLink>
-                        </NavItem>
-
-
-
-
-
+                        }
                     </Nav>
                 </Collapse>
             </Navbar>

@@ -1,5 +1,5 @@
 import React from 'react';
-import dogs from "../dogsdata";
+import dogs from '../constants/dogsdata';
 
 const FilteredDogs = (props) => {
     const secilenTur = props.match.params.yazilanTur;
